@@ -104,7 +104,7 @@
 
 ## **商户的支付方式列表**
 
-* POST `/api/payway/payWayList`
+* GET `/api/payway/payWayList`
 
 **请求参数**
 
@@ -134,12 +134,12 @@
 ```
 
 **示例**
-* `curl -X POST "http://localhost:5080/api/payway/payWayList?apiId=K1724260436&sign=05e564d5dcc5ff5f8b6f5dfbc9a141eb&time=4466" -H "accept: */*"`
+* `curl -X GET "http://localhost:5080/api/payway/payWayList?apiId=K1724260436&sign=05e564d5dcc5ff5f8b6f5dfbc9a141eb&time=4466" -H "accept: */*"`
 ----
 
 ## **更新商户的支付方式**
 
-* POST `/api/payway/addPayWay`
+* PUT `/api/payway/addPayWay`
 
 **请求参数**
 
@@ -173,5 +173,5 @@
 ```
 
 **示例**
-* `curl -X POST "http://localhost:5080/api/payway/updatePayWay?account=xxxxx&payWayId=6&remark=ffffffff&sign=05e564d5dcc5ff5f8b6f5dfbc9a141eb&time=4466&typeCode=alipay&typeName=dssds" -H "accept: */*"`
+* `curl -X PUT "http://localhost:5080/api/payway/updatePayWay?account=xxxxx&payWayId=6&remark=ffffffff&sign=05e564d5dcc5ff5f8b6f5dfbc9a141eb&time=4466&typeCode=alipay&typeName=dssds" -H "accept: */*"`
 ----
