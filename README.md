@@ -137,7 +137,7 @@
 * `curl -X POST "http://localhost:5080/api/payway/payWayList?apiId=K1724260436&sign=05e564d5dcc5ff5f8b6f5dfbc9a141eb&time=4466" -H "accept: */*"`
 ----
 
-## **添加商户的支付方式**
+## **更新商户的支付方式**
 
 * POST `/api/payway/addPayWay`
 
