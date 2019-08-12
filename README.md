@@ -49,7 +49,7 @@
 | remark    | String  |  no  |  备注  |
 | sign     | 签名  |  yes  |  MD5(秘钥+时间戳)  |
 | time     | long  |  yes  |  时间戳  |
-| typeCode     | String  |  yes  |  类型【wechat-微信，alipay-支付宝,bankCard-银行卡，other-其他】  |
+| typeCode     | String  |  yes  |  类型【wechat-微信，alipay-支付宝,bankcard-银行卡，other-其他】  |
 | typeName     | String  |  no  |  类型名称  |
 
 **返回值**
@@ -150,7 +150,7 @@
 | remark    | String  |  no  |  修改后的备注  |
 | sign     | 签名  |  yes  |  MD5(秘钥+时间戳)  |
 | time     | long  |  yes  |  时间戳  |
-| typeCode     | String  |  yes  |   修改后的类型【wechat-微信，alipay-支付宝,bankCard-银行卡，other-其他】  |
+| typeCode     | String  |  yes  |   修改后的类型【wechat-微信，alipay-支付宝,bankcard-银行卡，other-其他】  |
 | typeName     | String  |  no  |   修改后的类型名称  |
 
 **返回值**
