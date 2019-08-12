@@ -9,7 +9,7 @@
 
 | 参数 | 类型 |  是否必须   |  说明   |
 | :--------:   | :-----:  |  :-----:  |  :-----:  |
-| apiCode    | String  |  yes  |  商户apiCode  |
+| apiCode    | String  |  yes  |  商户自定义的apiCode  |
 | apiName   | String  |  yes  |  商户名称  |
 | callUrl    | String  |  yes  |  商户订单回调地址  |
 
