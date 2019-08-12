@@ -32,8 +32,40 @@
 }
 ```
 
+## **更新商户回调地址**
+
+* PUT `/api/apiKey/update`
+
+**请求参数**
+
+| 参数 | 类型 |  是否必须   |  说明   |
+| :--------:   | :-----:  |  :-----:  |  :-----:  |
+| apiCode    | String  |  yes  |  商户apiCode  |
+| callUrl    | String  |  yes  |  商户订单回调地址  |
+| sign     | 签名  |  yes  |  MD5(秘钥+时间戳)  |
+| time     | long  |  yes  |  时间戳  |
+
+**返回值**
+
+```json
+{
+  "code": 0,-- 0成功，否则失败
+  "msg": "成功",-- 返回的信息
+  "data": {--返回的数据
+    "createTime": "2019-08-12 03:32:44",--创建时间
+    "updateTime": null,-- 修改时间
+    "apiKeyId": 8,--唯一主键
+    "apiId": "K1724260436",-- appid（后台生成）
+    "apiSecret": "vcHJvE8XpvMAJsfR7tlp0A35NKXnb4Wk",--秘钥
+    "apiCode": "dsadsad",
+    "apiName": "sadsadas",
+    "callUrl": "fsagagas"
+  }
+}
+```
+
 **示例**
-* `curl -X POST "http://localhost:5080/api/apiKey/create?apiCode=dsadsad&apiName=sadsadas&callUrl=fsagagas" -H "accept: */*"`
+* `curl -X PUT "http://localhost:5080/api/apiKey/update?apiCode=dsadsad&callUrl=ccccccc&sign=05e564d5dcc5ff5f8b6f5dfbc9a141eb&time=4466" -H "accept: */*"`
 ----
 
 ## **添加商户的支付方式**
@@ -174,4 +206,31 @@
 
 **示例**
 * `curl -X PUT "http://localhost:5080/api/payway/updatePayWay?account=xxxxx&payWayId=6&remark=ffffffff&sign=05e564d5dcc5ff5f8b6f5dfbc9a141eb&time=4466&typeCode=alipay&typeName=dssds" -H "accept: */*"`
+----
+
+## **订单推送接口**
+
+* POST `该接口由调用放提供，并在创建商户时配置`
+
+**请求参数**
+
+| 参数 | 类型 |  是否必须   |  说明   |
+| :--------:   | :-----:  |  :-----:  |  :-----:  |
+| orderId     | String  |  yes  |  订单主键  |
+| orderNo      | String  |  yes  |  订单编号  |
+| transTime    | String  |  yes  |  交易时间（yyyy-MM-dd HH:mm:ss）  |
+| amount     | 签名  |  yes  |  支付金额  |
+| title     | long  |  yes  |  标题  |
+| contant     | long  |  yes  |  内容  |
+| typeCode     | String  |  yes  |   支付类型【wechat-微信，alipay-支付宝,bankcard-银行卡，other-其他】  |
+| typeName     | String  |  yes  |   支付中文名称  |
+| apiId     | String  |  yes  |   商户apiId  |
+
+**返回值**
+
+```json
+{
+  "code": 0,-- 0成功，否则失败(失败会重复调用5次，5次后需要手工再触发调用或者每天会定时调用)
+}
+```
 ----
