@@ -1,6 +1,8 @@
 # apidoc
 接口文档
 
+# 接口访问域名：https://api.mypays.net
+### MD5签名示例：org.springframework.util.DigestUtils.md5DigestAsHex((apiSecret+time).getBytes())
 ## **创建商户api**
 
 * POST `/api/apiKey/create`
