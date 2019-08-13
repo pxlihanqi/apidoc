@@ -44,7 +44,7 @@
 | :--------:   | :-----:  |  :-----:  |  :-----:  |
 | apiCode    | String  |  yes  |  商户apiCode  |
 | callUrl    | String  |  yes  |  商户订单回调地址  |
-| sign     | 签名  |  yes  |  MD5(秘钥+时间戳)  |
+| sign     | String  |  yes  |  MD5(秘钥+时间戳)  |
 | time     | long  |  yes  |  时间戳  |
 
 **返回值**
@@ -81,7 +81,7 @@
 | account     | String  |  no  |  账号信息  |
 | apiId    | String  |  yes  |  商户apiId  |
 | remark    | String  |  no  |  备注  |
-| sign     | 签名  |  yes  |  MD5(秘钥+时间戳)  |
+| sign     | String  |  yes  |  MD5(秘钥+时间戳)  |
 | time     | long  |  yes  |  时间戳  |
 | typeCode     | String  |  yes  |  类型【wechat-微信，alipay-支付宝,bankcard-银行卡，other-其他】  |
 | typeName     | String  |  no  |  类型名称  |
@@ -118,7 +118,7 @@
 | 参数 | 类型 |  是否必须   |  说明   |
 | :--------:   | :-----:  |  :-----:  |  :-----:  |
 | payWayId      | String  |  yes  |  支付方式主键  |
-| sign     | 签名  |  yes  |  MD5(秘钥+时间戳)  |
+| sign     | String  |  yes  |  MD5(秘钥+时间戳)  |
 | time     | long  |  yes  |  时间戳  |
 
 **返回值**
@@ -145,7 +145,7 @@
 | 参数 | 类型 |  是否必须   |  说明   |
 | :--------:   | :-----:  |  :-----:  |  :-----:  |
 | apiId    | String  |  yes  |  商户apiId  |
-| sign     | 签名  |  yes  |  MD5(秘钥+时间戳)  |
+| sign     | String  |  yes  |  MD5(秘钥+时间戳)  |
 | time     | long  |  yes  |  时间戳  |
 
 **返回值**
@@ -180,10 +180,10 @@
 | 参数 | 类型 |  是否必须   |  说明   |
 | :--------:   | :-----:  |  :-----:  |  :-----:  |
 | account     | String  |  no  |  账号信息  |
-| payWayId      | String  |  yes  |  支付方式主键  |
+| payWayId      | Long  |  yes  |  支付方式主键  |
 | remark    | String  |  no  |  修改后的备注  |
-| sign     | 签名  |  yes  |  MD5(秘钥+时间戳)  |
-| time     | long  |  yes  |  时间戳  |
+| sign     | String  |  yes  |  MD5(秘钥+时间戳)  |
+| time     | Long  |  yes  |  时间戳  |
 | typeCode     | String  |  yes  |   修改后的类型【wechat-微信，alipay-支付宝,bankcard-银行卡，other-其他】  |
 | typeName     | String  |  no  |   修改后的类型名称  |
 
@@ -220,10 +220,10 @@
 | :--------:   | :-----:  |  :-----:  |  :-----:  |
 | orderId     | String  |  yes  |  订单主键  |
 | orderNo      | String  |  yes  |  订单编号  |
-| transTime    | String  |  yes  |  交易时间（yyyy-MM-dd HH:mm:ss）  |
-| amount     | 签名  |  yes  |  支付金额  |
-| title     | long  |  yes  |  标题  |
-| contant     | long  |  yes  |  内容  |
+| transTime    | Date  |  yes  |  交易时间（yyyy-MM-dd HH:mm:ss）  |
+| amount     | BigDecimal  |  yes  |  支付金额  |
+| title     | String  |  yes  |  标题  |
+| contant     | String  |  yes  |  内容  |
 | typeCode     | String  |  yes  |   支付类型【wechat-微信，alipay-支付宝,bankcard-银行卡，other-其他】  |
 | typeName     | String  |  yes  |   支付中文名称  |
 | apiId     | String  |  yes  |   商户apiId  |
