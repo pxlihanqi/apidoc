@@ -36,7 +36,7 @@
 
 ## **更新商户回调地址**
 
-* PUT `/api/apiKey/update`
+* POST `/api/apiKey/update`
 
 **请求参数**
 
@@ -45,7 +45,7 @@
 | apiCode    | String  |  yes  |  商户apiCode  |
 | callUrl    | String  |  yes  |  商户订单回调地址  |
 | sign     | String  |  yes  |  MD5(秘钥+时间戳)  |
-| time     | long  |  yes  |  时间戳  |
+| time     | long  |  yes  |  时间戳 （误差不能大于10秒）  |
 
 **返回值**
 
@@ -82,7 +82,7 @@
 | apiId    | String  |  yes  |  商户apiId  |
 | remark    | String  |  no  |  备注  |
 | sign     | String  |  yes  |  MD5(秘钥+时间戳)  |
-| time     | long  |  yes  |  时间戳  |
+| time     | long  |  yes  |  时间戳 （误差不能大于10秒）  |
 | typeCode     | String  |  yes  |  类型【wechat-微信，alipay-支付宝,bankcard-银行卡，other-其他】  |
 | typeName     | String  |  no  |  类型名称  |
 
@@ -119,7 +119,7 @@
 | :--------:   | :-----:  |  :-----:  |  :-----:  |
 | payWayId      | String  |  yes  |  支付方式主键  |
 | sign     | String  |  yes  |  MD5(秘钥+时间戳)  |
-| time     | long  |  yes  |  时间戳  |
+| time     | long  |  yes  |  时间戳 （误差不能大于10秒）  |
 
 **返回值**
 
@@ -146,7 +146,7 @@
 | :--------:   | :-----:  |  :-----:  |  :-----:  |
 | apiId    | String  |  yes  |  商户apiId  |
 | sign     | String  |  yes  |  MD5(秘钥+时间戳)  |
-| time     | long  |  yes  |  时间戳  |
+| time     | long  |  yes  |  时间戳 （误差不能大于10秒）  |
 
 **返回值**
 
@@ -173,7 +173,7 @@
 
 ## **更新商户的支付方式**
 
-* PUT `/api/payway/addPayWay`
+* POST `/api/payway/addPayWay`
 
 **请求参数**
 
@@ -183,7 +183,7 @@
 | payWayId      | Long  |  yes  |  支付方式主键  |
 | remark    | String  |  no  |  修改后的备注  |
 | sign     | String  |  yes  |  MD5(秘钥+时间戳)  |
-| time     | Long  |  yes  |  时间戳  |
+| time     | Long  |  yes  |  时间戳 （误差不能大于10秒）  |
 | typeCode     | String  |  yes  |   修改后的类型【wechat-微信，alipay-支付宝,bankcard-银行卡，other-其他】  |
 | typeName     | String  |  no  |   修改后的类型名称  |
 
@@ -227,6 +227,9 @@
 | typeCode     | String  |  yes  |   支付类型【wechat-微信，alipay-支付宝,bankcard-银行卡，other-其他】  |
 | typeName     | String  |  yes  |   支付中文名称  |
 | apiId     | String  |  yes  |   商户apiId  |
+| currency     | String  |  yes  |   币种（RMB）  |
+| sign     | String  |  yes  |  MD5(秘钥+时间戳)  |
+| time     | Long  |  yes  |  时间戳 （误差不能大于10秒） |
 
 **返回值**
 
