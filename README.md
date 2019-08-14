@@ -228,8 +228,8 @@
 | typeName     | String  |  yes  |   支付中文名称  |
 | apiId     | String  |  yes  |   商户apiId  |
 | currency     | String  |  yes  |   币种（RMB）  |
-| sign     | String  |  yes  |  MD5(秘钥+时间戳)  |
 | time     | Long  |  yes  |  时间戳 （误差不能大于10秒） |
+| sign     | String  |  yes  |  除去sign参数其他参数按字母排序拼接成“apiId=1&amount=1.0...” 加密后（加密方式参考以下） |
 
 **返回值**
 
@@ -237,5 +237,36 @@
 {
   "code": 0,-- 0成功，否则失败(失败会重复调用5次，5次后需要手工再触发调用或者每天会定时调用)
 }
+```
+**加密示例**
+```
+  /**
+	 * 签名
+	 *
+	 * @param content 拼接后的参数如apiId=1&amount=1.0...
+	 * @param secret 商户的秘钥
+	 * @return
+	 */
+	public static String sha256HMACToSign(String content, String secret) {
+			try {
+				javax.crypto.Mac sha256_HMAC = javax.crypto.Mac.getInstance("HmacSHA256");
+				javax.crypto.spec.SecretKeySpec secret_key = new javax.crypto.spec.SecretKeySpec(secret.getBytes(), "HmacSHA256");
+				sha256_HMAC.init(secret_key);
+				byte[] bytes = sha256_HMAC.doFinal(content.getBytes());
+		
+				StringBuffer buf = new StringBuffer();
+				String stmp;
+				for (int n = 0; bytes != null && n < bytes.length; n++) {
+					stmp = Integer.toHexString(bytes[n] & 0XFF);
+					if (stmp.length() == 1) {
+						buf.append('0');
+					}
+					buf.append(stmp);
+				}
+				return buf.toString();
+			} catch (Exception e) {
+				return "";
+			}
+		}
 ```
 ----
