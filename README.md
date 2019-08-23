@@ -175,7 +175,7 @@
 
 ## **更新商户的支付方式**
 
-* POST `/api/payway/addPayWay`
+* POST `/api/payway/updatePayWay`
 
 **请求参数**
 
