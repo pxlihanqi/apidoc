@@ -80,6 +80,7 @@
 | :--------:   | :-----:  |  :-----:  |  :-----:  |
 | account     | String  |  no  |  账号信息  |
 | apiId    | String  |  yes  |  商户apiId  |
+| reId    | String  |  yes  |  主键（关联字段）  |
 | remark    | String  |  no  |  备注  |
 | qrCodeUrl    | String  |  no  |  二维码地址  |
 | sign     | String  |  yes  |  MD5(秘钥+时间戳)  |
@@ -118,7 +119,7 @@
 
 | 参数 | 类型 |  是否必须   |  说明   |
 | :--------:   | :-----:  |  :-----:  |  :-----:  |
-| payWayId      | String  |  yes  |  支付方式主键  |
+| reId      | String  |  yes  |  支付方式主键  |
 | sign     | String  |  yes  |  MD5(秘钥+时间戳)  |
 | time     | long  |  yes  |  时间戳 （误差不能大于10秒）  |
 
@@ -181,7 +182,7 @@
 | 参数 | 类型 |  是否必须   |  说明   |
 | :--------:   | :-----:  |  :-----:  |  :-----:  |
 | account     | String  |  no  |  账号信息  |
-| payWayId      | Long  |  yes  |  支付方式主键  |
+| reId      | Long  |  yes  |  支付方式主键  |
 | remark    | String  |  no  |  修改后的备注  |
 | qrCodeUrl    | String  |  no  |  二维码地址  |
 | sign     | String  |  yes  |  MD5(秘钥+时间戳)  |
