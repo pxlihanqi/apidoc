@@ -5,9 +5,19 @@
 #####   https://pubser.zhenai.com --生产
          
 #### MD5签名示例
-```java_holder_method_tree
+```java
+        /**
+         * 先将参数排序
+         */
+        String[] strArray = { TOKEN, timestamp, nonce };
+        Arrays.sort(strArray);
+        StringBuilder sb = new StringBuilder();
+        for (String str : strArray) {
+            sb.append(str);
+        }
+
     /**
-	 * 用SHA1算法生成安全签名
+	 * 然后用SHA1算法生成安全签名
 	 *
 	 * @param string1
 	 * @return
